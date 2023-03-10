@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" >
+            <form class="form-group text-center border" [formGroup]="ul">
+                <h3>Unlock Account</h3>
+                <div class="form-group">
+                    <label class="form-label">Email Id</label>
+                    <input type="email" placeholder="enter Email id" name="email" formControlName="email" class="form-control">
+                    <span style="color:red" *ngIf="em && em.invalid && em.touched">Enter valid emailid</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Temporary Password</label>
+                    <input type="password" placeholder="Enter Temporar pass" name="tempPwd" formControlName="tempPwd" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" placeholder="Enter Pasword" name="newPwd" formControlName="newPwd" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" placeholder="Enter Confirm Password" name="confirmPwd" formControlName="confirmPwd" class="form-control">
+                </div>
+                <br>
+                <button class="align-center btn btn-primary w-50" (click)="savedata()" >Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

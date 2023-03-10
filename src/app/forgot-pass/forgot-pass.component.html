@@ -1,0 +1,13 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form  class="form-group text-center border" [formGroup]="pass">
+                <h3>Forgot Password</h3>
+                <label class="form-label" >Enter Email</label>
+                <input type="email" class="form-control" name="emailId" formControlName="emailId" placeholder="Enter email" >
+                <br>
+                <button type="button" class="align-center btn btn-primary" (click)="getpassword()" >Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

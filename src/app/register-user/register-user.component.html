@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row border">
+        <div class="col-md-6">
+            <form class="form-group" [formGroup]="regform">
+                <h3>Registration Form</h3>
+                <div class="form-group">
+                  <label class="form-label">FirstName</label>
+                  <input type="text" placeholder="Enter FirstName" name="fname" formControlName="fname" class="form-control">
+                  <span style="color:red" *ngIf="first && first.invalid && first.touched">Enter FirstName</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">LastName</label>
+                  <input type="text" placeholder="Enter LastName" name="lname" formControlName="lname" class="form-control">
+                  <span style="color:red" *ngIf="last && last.invalid && last.touched">Enter lastName</span>
+
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Id</label>
+                  <input type="email" placeholder="Enter email" name="email"  #email (blur)="checkemail($any($event.target).value)" formControlName="email" class="form-control">
+                  <span style="color:red" *ngIf="em && em.invalid && em.touched">Enter valid emailid</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone no</label>
+                  <input type="number" placeholder="Enter Phone Number" name="phno" formControlName="phno" class="form-control">
+                  <span style="color:red" *ngIf="ph && ph.invalid && ph.touched">Enter Valid Phone number </span>
+
+                </div>
+                <div class="form-group">
+                  <label for="" class="form-label">Enter DOB</label>
+                  <input type="date" name="dob" formControlName="dob" class="form-control input-group date " >
+                  <span style="color:red" *ngIf="date && date.invalid && date.touched">Enter Valid Date of birth </span>
+
+                </div>
+       
+
+            <br>
+            <div class="form-group" formControlName="gender">
+              <label class="form-check-label" for="">Gender</label>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender"  id="flexRadioDefault1" checked>
+              <label class="form-check-label" for="flexRadioDefault1">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender"  id="flexRadioDefault2" >
+              <label class="form-check-label" for="flexRadioDefault2">    Female          </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group">
+              <label class="form-label">Country</label>
+              <select class="form-select" name="countryId"  (change)="state($any($event.target).value)" formControlName="countryId">
+              <option *ngFor="let c of countryoption |keyvalue" [value]="c.key">{{c.value}}</option>
+            </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">State</label>
+              <select  class="form-select" name="stateId" (change)="city($any($event.target).value)" formControlName="stateId">
+              <option *ngFor="let s of stateoption |keyvalue"  [value]="s.key">{{s.value}}</option>
+            </select>
+
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">City</label>
+              <select  class="form-select" name="cityId" formControlName="cityId">
+              <option *ngFor="let cc of cityoption |keyvalue" [value]="cc.key">{{cc.value}}</option>
+            </select>
+            </div>
+          </div>
+          <br>
+            <button [disabled]="regform.invalid" class="btn btn-primary w-100" (click)="registration()"> Submit</button>
+            </form>
+          </div>
+
+
+    
